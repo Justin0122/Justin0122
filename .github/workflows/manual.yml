@@ -1,0 +1,52 @@
+name: Update Profile README
+
+on:
+  workflow_dispatch:
+
+env:
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Update README with GitHub Stats
+        run: |
+          # Fetch Repository Languages
+          REPOS=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/users/Justin0122/repos?per_page=100" | jq -r '.[].name')
+          declare -A languages_array=()
+          total_lines=0
+          
+          for repo in $REPOS; do
+            LANGUAGES=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
+            for lang in $LANGUAGES; do
+              bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
+              (( languages_array[$lang] += bytes ))
+              (( total_lines += bytes ))
+            done
+          done
+          
+          # Create a GitHub-like language bar chart
+          echo "## GitHub Stats" > stats.md
+          for lang in "${!languages_array[@]}"; do
+            percentage=$(echo "scale=2; ${languages_array[$lang]} * 100 / $total_lines" | bc)
+          echo "[![${lang}](https://img.shields.io/badge/${lang// /%20}-${percentage}%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=${lang}&sort=)" >> stats.md
+          done
+          echo -e "\nLast update: $(date)\n" >> stats.md
+          
+          # Append GitHub Stats to the existing README
+          sed -n -i '/## GitHub Stats/q;p' README.md  # Keep contents above the stats section
+          cat stats.md >> README.md  # Append GitHub Stats
+          rm stats.md  # Remove temporary file
+
+      - name: Commit changes and push to repository
+        run: |
+          git config --global user.name 'Justin0122'
+          git config --global user.email 'brilsmurfj@gmail.com'
+          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Justin0122/Justin0122
+          git checkout "${GITHUB_REF:11}"
+          git commit -am "Update README"
+          git push origin "${GITHUB_REF:11}"
