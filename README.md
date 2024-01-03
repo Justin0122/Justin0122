@@ -17,15 +17,15 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 - **And More...**
 
 ## GitHub Stats
-[![Python](https://img.shields.io/badge/Python-.22%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=Python&sort=)
-[![Shell](https://img.shields.io/badge/Shell-.10%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=Shell&sort=)
-[![JavaScript](https://img.shields.io/badge/JavaScript-3.83%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=JavaScript&sort=)
-[![Blade](https://img.shields.io/badge/Blade-26.22%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=Blade&sort=)
-[![CSS](https://img.shields.io/badge/CSS-1.72%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=CSS&sort=)
-[![SCSS](https://img.shields.io/badge/SCSS-3.07%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=SCSS&sort=)
-[![PHP](https://img.shields.io/badge/PHP-63.89%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=PHP&sort=)
-[![EJS](https://img.shields.io/badge/EJS-.81%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=EJS&sort=)
-[![HTML](https://img.shields.io/badge/HTML-.11%25-blue)](https://github.com/Justin0122?tab=repositories&q=&type=&language=HTML&sort=)
+![Python](https://img.shields.io/badge/Python-.22%25-blue)
+![Shell](https://img.shields.io/badge/Shell-.10%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-3.82%25-blue)
+![Blade](https://img.shields.io/badge/Blade-26.23%25-blue)
+![CSS](https://img.shields.io/badge/CSS-1.72%25-blue)
+![SCSS](https://img.shields.io/badge/SCSS-3.07%25-blue)
+![PHP](https://img.shields.io/badge/PHP-63.89%25-blue)
+![EJS](https://img.shields.io/badge/EJS-.80%25-blue)
+![HTML](https://img.shields.io/badge/HTML-.11%25-blue)
 
-Last update: Sat Dec 30 15:30:54 UTC 2023
+Last update: Wed Jan  3 00:53:27 UTC 2024
 
