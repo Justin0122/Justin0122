@@ -2,8 +2,8 @@ name: Update Profile README
 
 on:
   schedule:
-    - # run every wednesday at 00:00 UTC
-      cron: '0 0 * * WED'
+    - # run every everyday at 00:00 UTC
+      cron: '0 0 * * *'
 
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
