@@ -2,6 +2,9 @@
 
 I'm Justin Jongstra, a passionate web developer from the Netherlands.
 
+<a href='https://ko-fi.com/justinjongstra' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> 
+<br>
+
 ### About Me
 - 🌱 Actively evolving in Laravel, Livewire, and Tailwind CSS
 - 🎓 Pursuing my MBO (VET) Software Developer diploma at [Rijn IJssel](https://www.rijnijssel.nl/)
