@@ -23,11 +23,13 @@ jobs:
           total_lines=0
           
           for repo in $REPOS; do
-            LANGUAGES=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[] | @sh')
+            LANGUAGES=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
+            # Loop over languages directly without jq
             for lang in $LANGUAGES; do
-              bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
-              (( languages_array[$lang] += bytes ))
-              (( total_lines += bytes ))
+            # Fetch bytes for the language
+            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
+            (( languages_array["$lang"] += bytes ))  # Ensure $lang is quoted to handle special characters
+            (( total_lines += bytes ))
             done
           done
           
