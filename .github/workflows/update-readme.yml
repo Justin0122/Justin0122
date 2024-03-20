@@ -4,7 +4,7 @@ on:
   schedule:
     - # run every everyday at 00:00 UTC
       cron: '0 0 * * *'
-      
+
   workflow_dispatch:
 
 env:
@@ -25,13 +25,16 @@ jobs:
           total_lines=0
           
           for repo in $REPOS; do
-            LANGUAGES=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
-            # Loop over languages directly without jq
+            LANGUAGES=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
+            LANGUAGES=$(echo $LANGUAGES | sed 's/+/pp/g')
             for lang in $LANGUAGES; do
-            # Fetch bytes for the language
-            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r --arg lang "$lang" '.[$lang]')
-            (( languages_array["$lang"] += "$bytes" ))  # Ensure $lang is quoted to handle special characters
-            (( total_lines += bytes ))
+              lines=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq .[$lang])
+              total_lines=$((total_lines + lines))
+              if [ -v "languages_array[$lang]" ]; then
+                languages_array[$lang]=$((languages_array[$lang] + lines))
+              else
+                languages_array[$lang]=$lines
+              fi
             done
           done
           
@@ -47,7 +50,6 @@ jobs:
           sed -n -i '/## GitHub Stats/q;p' README.md  # Keep contents above the stats section
           cat stats.md >> README.md  # Append GitHub Stats
           rm stats.md  # Remove temporary file
-
       - name: Commit changes and push to repository
         run: |
           git config --global user.name 'Justin0122'
