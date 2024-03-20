@@ -5,8 +5,6 @@ on:
     - # run every everyday at 00:00 UTC
       cron: '0 0 * * *'
 
-  workflow_dispatch:
-
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
@@ -23,18 +21,16 @@ jobs:
           REPOS=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/users/Justin0122/repos?per_page=100" | jq -r '.[].name')
           declare -A languages_array=()
           total_lines=0
+          echo "REPOS: $REPOS"
           
           for repo in $REPOS; do
             LANGUAGES=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
-            LANGUAGES=$(echo $LANGUAGES | sed 's/+/pp/g')
+            # Loop over languages directly without jq
             for lang in $LANGUAGES; do
-              lines=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq .[$lang])
-              total_lines=$((total_lines + lines))
-              if [ -v "languages_array[$lang]" ]; then
-                languages_array[$lang]=$((languages_array[$lang] + lines))
-              else
-                languages_array[$lang]=$lines
-              fi
+            # Fetch bytes for the language
+            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
+            (( languages_array["$lang"] += bytes ))  # Ensure $lang is quoted to handle special characters
+            (( total_lines += bytes ))
             done
           done
           
