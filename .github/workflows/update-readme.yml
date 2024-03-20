@@ -29,7 +29,7 @@ jobs:
             # Loop over languages directly without jq
             for lang in $LANGUAGES; do
             # Fetch bytes for the language
-            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
+            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r --arg lang "$lang" '.[$lang]')
             (( languages_array["$lang"] += "$bytes" ))  # Ensure $lang is quoted to handle special characters
             (( total_lines += bytes ))
             done
