@@ -23,17 +23,17 @@ jobs:
           REPOS=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/users/Justin0122/repos?per_page=100" | jq -r '.[].name')
           declare -A languages_array=()
           total_lines=0
-          echo "REPOS: $REPOS"
           
           for repo in $REPOS; do
-            LANGUAGES=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
-            # Loop over languages directly without jq
-            for lang in $LANGUAGES; do
-            # Fetch bytes for the language
-            bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
-            (( languages_array["$lang"] += bytes ))  # Ensure $lang is quoted to handle special characters
-            (( total_lines += bytes ))
-            done
+              LANGUAGES=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
+              for lang in $LANGUAGES; do
+                  # Fetch bytes for the language
+                  bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".\"$lang\"")
+                  if [ ! -z "$bytes" ]; then
+                      (( languages_array["$lang"] += bytes ))
+                      (( total_lines += bytes ))
+                  fi
+              done
           done
           
           # Create a GitHub-like language bar chart
