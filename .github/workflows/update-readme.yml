@@ -4,7 +4,7 @@ on:
   schedule:
     - # run every everyday at 00:00 UTC
       cron: '0 0 * * *'
-
+      
   workflow_dispatch:
 
 env:
@@ -25,15 +25,12 @@ jobs:
           total_lines=0
           
           for repo in $REPOS; do
-              LANGUAGES=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
-              for lang in $LANGUAGES; do
-                  # Fetch bytes for the language
-                  bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".\"$lang\"")
-                  if [ ! -z "$bytes" ]; then
-                      (( languages_array["$lang"] += bytes ))
-                      (( total_lines += bytes ))
-                  fi
-              done
+            LANGUAGES=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r 'keys[]')
+            for lang in $LANGUAGES; do
+              bytes=$(curl -s "https://api.github.com/repos/Justin0122/$repo/languages" | jq -r ".$lang")
+              (( languages_array[$lang] += bytes ))
+              (( total_lines += bytes ))
+            done
           done
           
           # Create a GitHub-like language bar chart
@@ -48,6 +45,7 @@ jobs:
           sed -n -i '/## GitHub Stats/q;p' README.md  # Keep contents above the stats section
           cat stats.md >> README.md  # Append GitHub Stats
           rm stats.md  # Remove temporary file
+
       - name: Commit changes and push to repository
         run: |
           git config --global user.name 'Justin0122'
