@@ -25,7 +25,7 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 
 <p align="center">
   <img style="height: 190px;" src="https://github-readme-stats-sigma-two-42.vercel.app/api?username=Justin0122&show_icons=true&theme=outrun" alt="Seems like some API took too long to fetch my stats, try reloading the page"/>
-  <img style="height: 190px;" src="https://github-readme-stats-sigma-two-42.vercel.app/api/top-langs/?username=Justin0122&layout=compact" alt="Seems like some API took too long to fetch my stats, try reloading the page"/>
+  <img style="height: 190px;" src="https://github-readme-stats-sigma-two-42.vercel.app/api/top-langs/?username=Justin0122&layout=compact&theme=outrun" alt="Seems like some API took too long to fetch my stats, try reloading the page"/>
 </p>
 
 
