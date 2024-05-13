@@ -48,8 +48,8 @@ jobs:
 
       - name: Commit changes and push to repository
         run: |
-          git config --global user.name 'Justin0122'
-          git config --global user.email 'brilsmurfj@gmail.com'
+          git config --global user.name 'GithubAction'
+          git config --global user.email 'brilsmurfj+githubaction@gmail.com'
           git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Justin0122/Justin0122
           git checkout "${GITHUB_REF:11}"
           git commit -am "Update README"
