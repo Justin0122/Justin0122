@@ -32,15 +32,15 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![Python](https://img.shields.io/badge/Python-.10%25-blue)
 ![Shell](https://img.shields.io/badge/Shell-.21%25-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-.01%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-8.14%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-8.13%25-blue)
 ![MDX](https://img.shields.io/badge/MDX-3.07%25-blue)
 ![Blade](https://img.shields.io/badge/Blade-31.95%25-blue)
 ![CSS](https://img.shields.io/badge/CSS-1.33%25-blue)
 ![SCSS](https://img.shields.io/badge/SCSS-1.26%25-blue)
-![PHP](https://img.shields.io/badge/PHP-52.87%25-blue)
+![PHP](https://img.shields.io/badge/PHP-52.88%25-blue)
 ![EJS](https://img.shields.io/badge/EJS-.47%25-blue)
 ![HTML](https://img.shields.io/badge/HTML-.06%25-blue)
 ![Vue](https://img.shields.io/badge/Vue-.47%25-blue)
 
-Last update: Mon Jun 24 01:14:25 UTC 2024
+Last update: Wed Jun 26 01:13:12 UTC 2024
 
