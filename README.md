@@ -32,17 +32,17 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![Python](https://img.shields.io/badge/Python-.10%25-blue)
 ![Shell](https://img.shields.io/badge/Shell-.10%25-blue)
 ![Dockerfile](https://img.shields.io/badge/Dockerfile-0%25-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-1.97%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-8.54%25-blue)
-![MDX](https://img.shields.io/badge/MDX-2.92%25-blue)
-![Blade](https://img.shields.io/badge/Blade-30.37%25-blue)
-![Astro](https://img.shields.io/badge/Astro-2.22%25-blue)
-![CSS](https://img.shields.io/badge/CSS-1.31%25-blue)
-![SCSS](https://img.shields.io/badge/SCSS-1.20%25-blue)
-![PHP](https://img.shields.io/badge/PHP-50.26%25-blue)
-![EJS](https://img.shields.io/badge/EJS-.44%25-blue)
-![HTML](https://img.shields.io/badge/HTML-.05%25-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-.35%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-6.19%25-blue)
+![MDX](https://img.shields.io/badge/MDX-1.55%25-blue)
+![Blade](https://img.shields.io/badge/Blade-35.68%25-blue)
+![Astro](https://img.shields.io/badge/Astro-2.23%25-blue)
+![CSS](https://img.shields.io/badge/CSS-1.38%25-blue)
+![SCSS](https://img.shields.io/badge/SCSS-1.21%25-blue)
+![PHP](https://img.shields.io/badge/PHP-50.20%25-blue)
+![EJS](https://img.shields.io/badge/EJS-.45%25-blue)
+![HTML](https://img.shields.io/badge/HTML-.06%25-blue)
 ![Vue](https://img.shields.io/badge/Vue-.45%25-blue)
 
-Last update: Sun Mar 16 01:43:42 UTC 2025
+Last update: Thu Apr 17 01:42:31 UTC 2025
 
