@@ -2,9 +2,8 @@ name: Update Profile README
 
 on:
   schedule:
-    - # run every everyday at 00:00 UTC
+    - # run every day at 00:00 UTC
       cron: '0 0 * * *'
-      
   workflow_dispatch:
 
 env:
@@ -16,14 +15,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-    
+
       - name: Update README with GitHub Stats
         shell: bash
         run: |
+          # Fetch Repository Languages
           REPOS=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/users/Justin0122/repos?per_page=100" | jq -r '.[].name')
           declare -A languages_array=()
           total_lines=0
-      
+
           for repo in $REPOS; do
             LANGUAGE_JSON=$(curl -H "Authorization: Bearer $ACCESS_TOKEN" -s "https://api.github.com/repos/Justin0122/$repo/languages")
             LANGUAGES=$(echo "$LANGUAGE_JSON" | jq -r 'keys[]')
@@ -33,32 +33,26 @@ jobs:
               (( total_lines += bytes ))
             done
           done
-      
+
+          # Create a GitHub-like language bar chart
           echo "## GitHub Stats" > stats.md
           for lang in "${!languages_array[@]}"; do
             percentage=$(echo "scale=2; ${languages_array[$lang]} * 100 / $total_lines" | bc)
             echo "![${lang}](https://img.shields.io/badge/${lang// /%20}-${percentage}%25-blue)" >> stats.md
           done
           echo -e "\nLast update: $(date)\n" >> stats.md
-      
+
+          # Append GitHub Stats to the existing README
           sed -i -n '/## GitHub Stats/q;p' README.md
           cat stats.md >> README.md
           rm stats.md
-      
-          git config --global user.name 'GithubAction'
-          git config --global user.email 'brilsmurfj+githubaction@gmail.com'
-          git remote set-url origin https://${ACCESS_TOKEN}@github.com/Justin0122/Justin0122
-          git checkout "${GITHUB_REF:11}"
-          git diff --quiet && echo "No changes to commit" && exit 0
-          git commit -am "Update README"
-          git push origin "${GITHUB_REF:11}"
-
 
       - name: Commit changes and push to repository
         run: |
           git config --global user.name 'GithubAction'
           git config --global user.email 'brilsmurfj+githubaction@gmail.com'
-          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Justin0122/Justin0122
+          git remote set-url origin https://${ACCESS_TOKEN}@github.com/Justin0122/Justin0122
           git checkout "${GITHUB_REF:11}"
+          git diff --quiet && echo "No changes to commit" && exit 0
           git commit -am "Update README"
           git push origin "${GITHUB_REF:11}"
