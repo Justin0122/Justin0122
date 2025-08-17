@@ -7,7 +7,7 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 
 ### About Me
 - 🌱 Actively evolving in Laravel, Livewire, and Tailwind CSS
-- 🎓 Pursuing my MBO (VET) Software Developer diploma at [Rijn IJssel](https://www.rijnijssel.nl/)
+- 🎓 Graduated Software Developer at [Rijn IJssel](https://www.rijnijssel.nl/)
 - 🚵‍♂️ Enthusiastic mountain biker
 - ✏️ Passionate about drawing
 - 🎮 Gamer at heart
