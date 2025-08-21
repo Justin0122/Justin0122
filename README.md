@@ -40,10 +40,10 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![Astro](https://img.shields.io/badge/Astro-1.00%25-blue)
 ![CSS](https://img.shields.io/badge/CSS-.97%25-blue)
 ![SCSS](https://img.shields.io/badge/SCSS-1.81%25-blue)
-![PHP](https://img.shields.io/badge/PHP-52.38%25-blue)
+![PHP](https://img.shields.io/badge/PHP-52.37%25-blue)
 ![EJS](https://img.shields.io/badge/EJS-.20%25-blue)
 ![HTML](https://img.shields.io/badge/HTML-.04%25-blue)
 ![Vue](https://img.shields.io/badge/Vue-9.64%25-blue)
 
-Last update: Wed Aug 20 01:45:31 UTC 2025
+Last update: Thu Aug 21 01:44:24 UTC 2025
 
