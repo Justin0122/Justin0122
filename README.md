@@ -47,5 +47,5 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![HTML](https://img.shields.io/badge/HTML-.02%25-blue)
 ![Vue](https://img.shields.io/badge/Vue-6.02%25-blue)
 
-Last update: Thu Mar  5 02:26:06 UTC 2026
+Last update: Fri Mar  6 02:24:11 UTC 2026
 
