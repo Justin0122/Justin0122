@@ -37,7 +37,7 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![MDX](https://img.shields.io/badge/MDX-.87%25-blue)
 ![C](https://img.shields.io/badge/C-35.32%25-blue)
 ![Makefile](https://img.shields.io/badge/Makefile-.07%25-blue)
-![Blade](https://img.shields.io/badge/Blade-11.90%25-blue)
+![Blade](https://img.shields.io/badge/Blade-11.89%25-blue)
 ![Astro](https://img.shields.io/badge/Astro-1.27%25-blue)
 ![CSS](https://img.shields.io/badge/CSS-.94%25-blue)
 ![Meson](https://img.shields.io/badge/Meson-.30%25-blue)
@@ -47,5 +47,5 @@ I'm Justin Jongstra, a passionate web developer from the Netherlands.
 ![HTML](https://img.shields.io/badge/HTML-.02%25-blue)
 ![Vue](https://img.shields.io/badge/Vue-5.99%25-blue)
 
-Last update: Fri Apr 10 02:49:35 UTC 2026
+Last update: Sat Apr 11 02:33:41 UTC 2026
 
